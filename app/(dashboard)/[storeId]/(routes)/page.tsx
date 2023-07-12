@@ -1,3 +1,5 @@
+
+import Navbar from "../../../../components/Navbar";
 import prismadb from "../../../../lib/prisma";
 
 interface IDashboardProps { 
@@ -18,6 +20,7 @@ const DashboardPage: React.FC<IDashboardProps>  = async ({
 
     return (
         <div>
+            <Navbar />
             This is a Dashboard!
         </div>
     );

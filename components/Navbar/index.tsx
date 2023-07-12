@@ -1,16 +1,27 @@
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, auth } from "@clerk/nextjs";
 
 // internal custom components
-import { MainNav } from "./components";
+import { MainNav, StoreSwitcher } from "./components";
+import { redirect } from "next/navigation";
+import prismadb from "../../lib/prisma";
 
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC = async () => {
+
+    const { userId } = auth();
+    
+    if (!userId) redirect('/sign-in');
+
+    const stores = await prismadb.store.findMany({
+        where: {
+            userId,
+        },
+    });
+
     return (
         <div className="border-b">
             <div className="flex h-16 items-center px-4">
-                <div>
-                    This will be a store switcher
-                </div>
+                <StoreSwitcher items={stores} />
                 <MainNav />
                 <div className="ml-auto flex items-center space-x-4">
                     <UserButton afterSignOutUrl="/" />

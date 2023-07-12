@@ -12,7 +12,7 @@ import { useState } from "react";
 import { useStoreModal } from "@/hooks";
 
 // custom modal
-import Modal from "@/components/ui/modal";
+import Modal from "@/components/ui/Modal";
 
 // axios
 import axios from "axios";
@@ -25,9 +25,9 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/form";
-import { Input } from "../../ui/input";
-import { Button } from "../../ui/button";
+} from "@/components/ui/Form";
+import { Input } from "../../ui/Input";
+import { Button } from "../../ui/Button";
 
 // toast
 import { toast } from "react-hot-toast";

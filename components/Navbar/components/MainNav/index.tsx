@@ -6,7 +6,7 @@ import { cn } from "../../../../lib/utils";
 import Link from "next/link";
 
 // interfaces
-interface IMainNavProps {
+interface IMainNavProps extends React.HTMLAttributes<HTMLElement> {
     className?: string;
 }
 
