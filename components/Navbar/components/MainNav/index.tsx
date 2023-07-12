@@ -16,13 +16,13 @@ const MainNav: React.FC<IMainNavProps> = ({ className }) => {
 
     const routes = [
         {
-            href: `/${params.storeId}/settings`,
-            label: "Settings",
-            active: pathname === `/${params.storeId}/settings`,
+            href: `/${params.storeId}`,
+            label: "Overview",
+            active: pathname === `/${params.storeId}`,
         },
         {
-            href: ``,
-            label: "",
+            href: `/${params.storeId}/settings`,
+            label: "Settings",
             active: pathname === `/${params.storeId}/settings`,
         },
     ];
