@@ -5,11 +5,19 @@ import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+// hooks
+import { useState } from "react";
+
 // custom hooks
 import { useStoreModal } from "@/hooks";
 
 // custom modal
 import Modal from "@/components/ui/modal";
+
+// axios
+import axios from "axios";
+
+// ui components
 import {
     Form,
     FormControl,
@@ -21,6 +29,9 @@ import {
 import { Input } from "../../ui/input";
 import { Button } from "../../ui/button";
 
+// toast
+import { toast } from "react-hot-toast";
+
 const formSchema = z.object({
     name: z.string().min(1),
 });
@@ -28,6 +39,9 @@ const formSchema = z.object({
 const StoreModal: React.FC = () => {
     // store modal controller
     const storeModal = useStoreModal();
+
+    // states
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     // form
     const form = useForm<z.infer<typeof formSchema>>({
@@ -38,7 +52,23 @@ const StoreModal: React.FC = () => {
     });
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        // TODO: CREATE STORE
+        
+        setIsLoading(true);
+
+        try {
+        
+            const response = await axios.post('/api/stores', values);
+            console.log("[STORE MODAL] :", response.data); // DEV CONSOLE
+
+            window.location.assign(`/${response.data.id}`);
+
+        } catch (error: any) {
+            console.log("[STORE MODAL] :", error); // DEV CONSOLE
+            toast.error("Somethingg went wrong.");
+        } finally {
+            setIsLoading(false);
+        }
+
     };
 
     return (
@@ -60,6 +90,7 @@ const StoreModal: React.FC = () => {
                                         <FormLabel>Name</FormLabel>
                                         <FormControl>
                                             <Input
+                                                disabled={isLoading}
                                                 placeholder="E-commmerce"
                                                 {...field}
                                             />
@@ -72,10 +103,11 @@ const StoreModal: React.FC = () => {
                                 <Button
                                     variant="outline"
                                     onClick={storeModal.onClose}
+                                    disabled={isLoading}
                                 >
                                     Cancel
                                 </Button>
-                                <Button type="submit">Continue</Button>
+                                <Button type="submit" disabled={isLoading}>Continue</Button>
                             </div>
                         </form>
                     </Form>
