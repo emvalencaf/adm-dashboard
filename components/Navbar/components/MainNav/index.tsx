@@ -26,9 +26,14 @@ const MainNav: React.FC<IMainNavProps> = ({ className }) => {
             active: pathname === `/${params.storeId}/biilboards`,
         },
         {
-            href: `/${params.storeId}/billboards`,
+            href: `/${params.storeId}/categories`,
             label: "Categories",
             active: pathname === `/${params.storeId}/categories`,
+        },
+        {
+            href: `/${params.storeId}/sizes`,
+            label: "Sizes",
+            active: pathname === `/${params.storeId}/sizes`,
         },
         {
             href: `/${params.storeId}/settings`,
