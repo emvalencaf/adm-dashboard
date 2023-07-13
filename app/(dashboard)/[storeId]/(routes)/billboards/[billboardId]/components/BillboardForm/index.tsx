@@ -5,9 +5,6 @@ import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 
-// custom hooks
-import { useOrigin } from "@/hooks";
-
 // axios tools
 import axios from "axios";
 
@@ -28,7 +25,6 @@ import {
 import { Input } from "@/components/ui/Input";
 
 // custom components
-import ApiAlert from "@/components/ui/ApiAlert";
 import Heading from "@/components/ui/Heading";
 import { AlertModal } from "@/components/modals";
 
@@ -72,9 +68,6 @@ const BillboardForm: React.FC<IBillboardFormProps> = ({ initialData }) => {
         : "Billboard created.";
     const action = initialData ? "Save change" : "Create";
 
-    // get origin
-    const origin = useOrigin();
-
     // form
     const form = useForm({
         resolver: zodResolver(formSchema),
@@ -113,7 +106,7 @@ const BillboardForm: React.FC<IBillboardFormProps> = ({ initialData }) => {
             await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`);
 
             router.refresh();
-            router.push("/");
+            router.push(`/${params.storeId}/billboards`);
 
             toast.success("Billboard deleted");
         } catch (error: any) {
@@ -199,7 +192,6 @@ const BillboardForm: React.FC<IBillboardFormProps> = ({ initialData }) => {
                     </Button>
                 </form>
             </Form>
-            <Separator />
         </>
     );
 };

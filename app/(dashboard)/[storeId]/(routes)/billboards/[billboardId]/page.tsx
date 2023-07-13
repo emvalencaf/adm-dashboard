@@ -1,5 +1,5 @@
 import prismadb from "../../../../../../lib/prisma";
-import { BillboardForm } from "./compoenents";
+import { BillboardForm } from "./components";
 
 const BillboardPage = async ({
     params,
