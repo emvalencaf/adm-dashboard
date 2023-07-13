@@ -1,24 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-
-import { StoreModal } from "@/components/modals";
+// providers
 import { Toaster } from "react-hot-toast";
+
+// custom components
+import ClientComponent  from "@/components/ClientComponent";
 
 const ToastProvider: React.FC = () => {
 
-    // states
-    const [isMounted, setIsMounted] = useState<boolean>(false);
-
-    useEffect(() => setIsMounted(true), []);
-
-    if (!isMounted) return null;
-
     return (
-        <>
+        <ClientComponent>
             <Toaster />
-        </>
+        </ClientComponent>
     );
 }
 

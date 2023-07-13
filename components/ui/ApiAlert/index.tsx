@@ -1,8 +1,15 @@
-import { Copy, Server } from "lucide-react";
+'use client';
+
+// ui components
 import { Alert, AlertDescription, AlertTitle } from "../Alert";
 import { Badge, BadgeProps } from "../Badge";
 import { Button } from "../Button";
+
+// tost tools
 import toast from "react-hot-toast";
+
+// icons
+import { Copy, Server } from "lucide-react";
 
 // interfaces
 interface IApiAlertProps {
@@ -41,7 +48,7 @@ const ApiAlert: React.FC<IApiAlertProps> = ({
                     {textMap[variant]}
                 </Badge>
             </AlertTitle>
-            <AlertDescription className="mt-4 flex items-center gap-x-2">
+            <AlertDescription className="mt-4 flex items-center justify-between gap-x-2">
                 <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
                     {description}
                 </code>

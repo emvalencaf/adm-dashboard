@@ -1,23 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
-
+// custom components
 import { StoreModal } from "@/components/modals";
+import ClientComponent from "../../components/ClientComponent";
 
 const ModalProvider: React.FC = () => {
 
-    // states
-    const [isMounted, setIsMounted] = useState<boolean>(false);
-
-    useEffect(() => setIsMounted(true), []);
-
-    if (!isMounted) return null;
-
     return (
-        <>
+        <ClientComponent>
             <StoreModal />
-        </>
+        </ClientComponent>
     );
 }
 

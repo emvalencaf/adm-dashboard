@@ -20,7 +20,6 @@ const DashboardPage: React.FC<IDashboardProps>  = async ({
 
     return (
         <div>
-            <Navbar />
             This is a Dashboard!
         </div>
     );
