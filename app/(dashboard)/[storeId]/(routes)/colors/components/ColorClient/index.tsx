@@ -16,13 +16,13 @@ import ApiList from "../../../../../../../components/ui/ApiList";
 import { Plus } from "lucide-react";
 
 // interfaces
-import { SizeColumn, columns } from "../Columns";
+import { ColorColumn, columns } from "../Columns";
 
-interface ISizeClientProps {
-    data: SizeColumn[];
+interface IColorClientProps {
+    data: ColorColumn[];
 }
 
-const SizeClient: React.FC<ISizeClientProps> = ({
+const ColorClient: React.FC<IColorClientProps> = ({
     data
 }) => {
 
@@ -33,10 +33,10 @@ const SizeClient: React.FC<ISizeClientProps> = ({
         <>
             <div className="flex items-ccenter ustify-between">
                 <Heading
-                    title={`Sizes (${data.length})`}
-                    description="Manage sizes for your store"
+                    title={`Colors (${data.length})`}
+                    description="Manage colors for your store"
                 />
-                <Button onClick={() => router.push(`/${params.storeId}/sizes/new`)}>
+                <Button onClick={() => router.push(`/${params.storeId}/colors/new`)}>
                     <Plus className="" />
                     Add new
                 </Button>
@@ -45,15 +45,15 @@ const SizeClient: React.FC<ISizeClientProps> = ({
             <DataTable columns={columns} data={data} searchKey="name" />
             <Heading
                 title="API"
-                description="API calls for Sizes"
+                description="API calls for Colors"
             />
             <Separator />
             <ApiList
-                entityName="sizes"
-                entityIdName="sizeId"
+                entityName="colors"
+                entityIdName="colorId"
             />
         </>
     );
 };
 
-export default SizeClient;
+export default ColorClient;

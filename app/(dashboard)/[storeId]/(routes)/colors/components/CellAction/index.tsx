@@ -1,10 +1,6 @@
 "use client";
 
-// hooks
-import { useState } from "react";
-import { useParams, useRouter } from "next/navigation";
-
-// ui components
+import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { Button } from "../../../../../../../components/ui/Button";
 import {
     DropdownMenu,
@@ -13,25 +9,16 @@ import {
     DropdownMenuLabel,
     DropdownMenuTrigger,
 } from "../../../../../../../components/ui/DropDownMenu";
-
-// custom components
-import { AlertModal } from "../../../../../../../components/modals";
-
-// data table
-import { SizeColumn } from "../Columns";
-
-// icons
-import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
-
-// toast utils
+import { ColorColumn } from "../Columns";
 import toast from "react-hot-toast";
-
-// axios tools
+import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
+import { useState } from "react";
+import { AlertModal } from "../../../../../../../components/modals";
 
 // interfaces
 export interface ICellActionProps {
-    data: SizeColumn;
+    data: ColorColumn;
 }
 
 const CellAction: React.FC<ICellActionProps> = ({ data }) => {
@@ -44,7 +31,7 @@ const CellAction: React.FC<ICellActionProps> = ({ data }) => {
 
     const onCopy = (id: string) => {
         navigator.clipboard.writeText(id);
-        toast.success("Size id copied to the clipboard");
+        toast.success("Color id copied to the clipboard");
     };
 
     const onDelete = async () => {
@@ -52,16 +39,16 @@ const CellAction: React.FC<ICellActionProps> = ({ data }) => {
 
         try {
             await axios.delete(
-                `/api/${params.storeId}/sizes/${data.id}`
+                `/api/${params.storeId}/colors/${data.id}`
             );
 
             router.refresh();
 
-            toast.success("Size deleted");
+            toast.success("Color deleted");
         } catch (error: any) {
-            console.log("[CELLACTION-size] : ", error); // DEV LOG
+            console.log("[CELLACTION-color] : ", error); // DEV LOG
             toast.error(
-                "Make sure you removed all products using this size first."
+                "Make sure you removed all products using this color first."
             );
         } finally {
             setIsLoading(false);
@@ -69,7 +56,7 @@ const CellAction: React.FC<ICellActionProps> = ({ data }) => {
         }
     };
 
-    console.log(`/${params.storeId}/sizes/${data.id}`);
+    console.log(`/${params.storeId}/colors/${data.id}`);
 
     return (
         <>
@@ -97,7 +84,7 @@ const CellAction: React.FC<ICellActionProps> = ({ data }) => {
                             className="mr-2 h-4 w-4"
                             onClick={() =>
                                 router.push(
-                                    `/${params.storeId}/sizes/${data.id}`
+                                    `/${params.storeId}/colors/${data.id}`
                                 )
                             }
                         />

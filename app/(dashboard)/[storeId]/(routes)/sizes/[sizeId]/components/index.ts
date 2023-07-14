@@ -1,1 +1,1 @@
-export { default as BillboardForm } from './BillboardForm';
+export { default as SizeForm } from './SizeForm';
