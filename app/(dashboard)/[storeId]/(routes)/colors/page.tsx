@@ -24,7 +24,7 @@ const ColorPage: React.FC<IColorPageProps> = async ({
         storeId
     } = params;
 
-    const colors = await prismadb.size.findMany({
+    const colors = await prismadb.color.findMany({
         where: {
             storeId,
         },

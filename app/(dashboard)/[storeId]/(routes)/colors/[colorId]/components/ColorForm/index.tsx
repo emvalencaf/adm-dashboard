@@ -42,7 +42,7 @@ const formSchema = z.object({
     }),
 });
 
-type SettingsFormValues = z.infer<typeof formSchema>;
+type ColorFormValues = z.infer<typeof formSchema>;
 
 // interfaces
 import { Color } from "@prisma/client";
@@ -74,7 +74,7 @@ const ColorForm: React.FC<IColorFormProps> = ({ initialData }) => {
         },
     });
 
-    const onSubmit = async (data: SettingsFormValues) => {
+    const onSubmit = async (data: ColorFormValues) => {
         setIsLoading(true);
 
         try {

@@ -1,5 +1,8 @@
 "use client";
 
+// next tool
+import Image from "next/image";
+
 // next cloudinary
 import { CldUploadWidget } from "next-cloudinary";
 
@@ -49,6 +52,12 @@ const ImageUpload: React.FC<IImageUploadProps> = ({
                                     <Trash className="h-4 w-4" />
                                 </Button>
                             </div>
+                            <Image
+                                fill
+                                className="object-cover"
+                                alt="Image"
+                                src={url}
+                            />
                         </div>
                     ))}
                 </div>

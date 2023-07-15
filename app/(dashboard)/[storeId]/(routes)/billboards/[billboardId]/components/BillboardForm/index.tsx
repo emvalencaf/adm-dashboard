@@ -40,7 +40,7 @@ const formSchema = z.object({
     imageUrl: z.string().min(1),
 });
 
-type SettingsFormValues = z.infer<typeof formSchema>;
+type CategoryFormValues = z.infer<typeof formSchema>;
 
 // interfaces
 import { Billboard } from "@prisma/client";
@@ -77,7 +77,7 @@ const BillboardForm: React.FC<IBillboardFormProps> = ({ initialData }) => {
         },
     });
 
-    const onSubmit = async (data: SettingsFormValues) => {
+    const onSubmit = async (data: CategoryFormValues) => {
         setIsLoading(true);
 
         try {

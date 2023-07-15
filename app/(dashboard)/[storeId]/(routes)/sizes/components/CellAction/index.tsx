@@ -51,9 +51,7 @@ const CellAction: React.FC<ICellActionProps> = ({ data }) => {
         setIsLoading(true);
 
         try {
-            await axios.delete(
-                `/api/${params.storeId}/sizes/${data.id}`
-            );
+            await axios.delete(`/api/${params.storeId}/sizes/${data.id}`);
 
             router.refresh();
 
@@ -73,12 +71,12 @@ const CellAction: React.FC<ICellActionProps> = ({ data }) => {
 
     return (
         <>
-        <AlertModal
-            isOpen={open}
-            onClose={() => setOpen(false)}
-            onConfirm={onDelete}
-            isLoading={isLoading}
-        />
+            <AlertModal
+                isOpen={open}
+                onClose={() => setOpen(false)}
+                onConfirm={onDelete}
+                isLoading={isLoading}
+            />
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="h-8 w-8 p-0">
@@ -92,16 +90,12 @@ const CellAction: React.FC<ICellActionProps> = ({ data }) => {
                         <Copy className="mr-2 h-4 w-4" />
                         Copy Id
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        <Edit
-                            className="mr-2 h-4 w-4"
-                            onClick={() =>
-                                router.push(
-                                    `/${params.storeId}/sizes/${data.id}`
-                                )
-                            }
-                        />
-                        Update
+                    <DropdownMenuItem
+                        onClick={() =>
+                            router.push(`/${params.storeId}/sizes/${data.id}`)
+                        }
+                    >
+                        <Edit className="mr-2 h-4 w-4" /> Update
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => setOpen(true)}>
                         <Trash className="mr-2 h-4 w-4" />

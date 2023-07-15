@@ -40,7 +40,7 @@ const formSchema = z.object({
     value: z.string().min(1),
 });
 
-type SettingsFormValues = z.infer<typeof formSchema>;
+type SizeFormValues = z.infer<typeof formSchema>;
 
 // interfaces
 import { Size } from "@prisma/client";
@@ -77,7 +77,7 @@ const SizeForm: React.FC<ISizeFormProps> = ({ initialData }) => {
         },
     });
 
-    const onSubmit = async (data: SettingsFormValues) => {
+    const onSubmit = async (data: SizeFormValues) => {
         setIsLoading(true);
 
         try {
