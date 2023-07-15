@@ -37,14 +37,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 const formSchema = z.object({
     name: z.string().min(1),
-    value: z.string().min(1),
+    value: z.string().min(4).regex(/^#/, {
+        message: "String must be a valid hex code",
+    }),
 });
 
 type SettingsFormValues = z.infer<typeof formSchema>;
 
 // interfaces
 import { Color } from "@prisma/client";
-import ImageUpload from "../../../../../../../../components/ui/ImageUpload";
 
 interface IColorFormProps {
     initialData: Color | null;
@@ -60,12 +61,8 @@ const ColorForm: React.FC<IColorFormProps> = ({ initialData }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const title = initialData ? "Edit color" : "Create color";
-    const description = initialData
-        ? "Edit a color"
-        : "Add a new color";
-    const toastMessage = initialData
-        ? "Color updated"
-        : "Color created.";
+    const description = initialData ? "Edit a color" : "Add a new color";
+    const toastMessage = initialData ? "Color updated" : "Color created.";
     const action = initialData ? "Save change" : "Create";
 
     // form
@@ -82,9 +79,12 @@ const ColorForm: React.FC<IColorFormProps> = ({ initialData }) => {
 
         try {
             console.log("[COLORFORM]:", data); // DEV LOG
-            
-            initialData ?    
-                await axios.patch(`/api/${params.storeId}/colors/${params.colorId}`, data)
+
+            initialData
+                ? await axios.patch(
+                      `/api/${params.storeId}/colors/${params.colorId}`,
+                      data
+                  )
                 : await axios.post(`/api/${params.storeId}/colors`, data);
 
             router.refresh();
@@ -103,7 +103,9 @@ const ColorForm: React.FC<IColorFormProps> = ({ initialData }) => {
         setIsLoading(true);
 
         try {
-            await axios.delete(`/api/${params.storeId}/colors/${params.colorId}`);
+            await axios.delete(
+                `/api/${params.storeId}/colors/${params.colorId}`
+            );
 
             router.refresh();
             router.push(`/${params.storeId}/colors`);
@@ -112,7 +114,7 @@ const ColorForm: React.FC<IColorFormProps> = ({ initialData }) => {
         } catch (error: any) {
             console.log("[COLORFORM] : ", error); // DEV LOG
             toast.error(
-                "Make sure you removed all categories using this color first."
+                "Make sure you removed all products using this color first."
             );
         } finally {
             setIsLoading(false);
@@ -164,18 +166,27 @@ const ColorForm: React.FC<IColorFormProps> = ({ initialData }) => {
                                 </FormItem>
                             )}
                         />
-                                                <FormField
+                        <FormField
                             control={form.control}
                             name="value"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Value</FormLabel>
                                     <FormControl>
-                                        <Input
-                                            disabled={isLoading}
-                                            placeholder="Value"
-                                            {...field}
-                                        />
+                                        <div className="flex items-center gap-x-4">
+                                            <Input
+                                                disabled={isLoading}
+                                                placeholder="Value"
+                                                {...field}
+                                            />
+                                            <div
+                                                className="border p-4 rounded-full"
+                                                style={{
+                                                    backgroundColor:
+                                                        field.value,
+                                                }}
+                                            />
+                                        </div>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
