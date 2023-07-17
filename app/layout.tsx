@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 
 // custom providers
-import { ModalProvider, ToastProvider } from "@/providers";
+import { ModalProvider, ThemeProvider, ToastProvider } from "@/providers";
 
 // styles
 import "./globals.css";
@@ -21,14 +21,15 @@ export default async function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-
     return (
         <ClerkProvider>
             <html lang="en">
                 <body className={inter.className}>
-                    <ToastProvider />
-                    <ModalProvider />
-                    {children}
+                    <ThemeProvider attribute="class" defaultTheme="system" enableSystem >
+                        <ToastProvider />
+                        <ModalProvider />
+                        {children}
+                    </ThemeProvider>
                 </body>
             </html>
         </ClerkProvider>
