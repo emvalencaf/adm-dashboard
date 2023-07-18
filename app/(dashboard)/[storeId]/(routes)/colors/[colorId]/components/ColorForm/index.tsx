@@ -88,6 +88,7 @@ const ColorForm: React.FC<IColorFormProps> = ({ initialData }) => {
                 : await axios.post(`/api/${params.storeId}/colors`, data);
 
             router.refresh();
+            router.push(`/${params.storeId}/colors`);
 
             toast.success(toastMessage);
         } catch (error: any) {

@@ -98,6 +98,7 @@ const CategoryForm: React.FC<ICategoryFormProps> = ({
                 : await axios.post(`/api/${params.storeId}/categories`, data);
 
             router.refresh();
+            router.push(`/${params.storeId}/categories`);
 
             toast.success(toastMessage);
         } catch (error: any) {
