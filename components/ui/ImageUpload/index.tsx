@@ -10,7 +10,7 @@ import { CldUploadWidget } from "next-cloudinary";
 import { Button } from "../Button";
 
 // custom components
-import ClientComponent from "../../ClientComponent";
+import ClientComponent from "@/components/ClientComponent";
 
 // icons
 import { ImagePlus, Trash } from "lucide-react";

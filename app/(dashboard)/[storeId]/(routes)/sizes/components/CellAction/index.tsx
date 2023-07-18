@@ -5,17 +5,17 @@ import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 
 // ui components
-import { Button } from "../../../../../../../components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuTrigger,
-} from "../../../../../../../components/ui/DropDownMenu";
+} from "@/components/ui/DropDownMenu";
 
 // custom components
-import { AlertModal } from "../../../../../../../components/modals";
+import { AlertModal } from "@/components/modals";
 
 // data table
 import { SizeColumn } from "../Columns";

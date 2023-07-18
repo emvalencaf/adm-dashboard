@@ -44,14 +44,13 @@ type CategoryFormValues = z.infer<typeof formSchema>;
 
 // interfaces
 import { Billboard, Category } from "@prisma/client";
-import ImageUpload from "../../../../../../../../components/ui/ImageUpload";
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "../../../../../../../../components/ui/Select";
+} from "@/components/ui/Select";
 
 interface ICategoryFormProps {
     initialData: Category | null;

@@ -2,14 +2,14 @@
 import { format } from 'date-fns';
 
 // prisma tool
-import prismadb from "../../../../../lib/prisma";
+import prismadb from "@/lib/prisma";
 
 // custom components
 import { OrderClient } from "./components";
 
 // interfaces
 import { OrderColumn } from "./components/Columns";
-import { formatter } from '../../../../../lib/utils';
+import { formatter } from '@/lib/utils';
 
 interface IOrdersPageProps {
     params: {

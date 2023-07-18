@@ -44,7 +44,6 @@ type SizeFormValues = z.infer<typeof formSchema>;
 
 // interfaces
 import { Size } from "@prisma/client";
-import ImageUpload from "../../../../../../../../components/ui/ImageUpload";
 
 interface ISizeFormProps {
     initialData: Size | null;

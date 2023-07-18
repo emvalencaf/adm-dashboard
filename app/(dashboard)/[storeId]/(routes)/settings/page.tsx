@@ -3,7 +3,7 @@ import { auth } from "@clerk/nextjs";
 
 // nextjs tools
 import { redirect } from "next/navigation";
-import prismadb from "../../../../../lib/prisma";
+import prismadb from "@/lib/prisma";
 
 // custom internal settings component
 import { SettingsForm } from "./components";

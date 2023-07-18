@@ -1,7 +1,6 @@
 "use client";
 
-import { useStore } from "zustand";
-import { useStoreModal } from "../../../hooks";
+import { useStoreModal } from "@/hooks";
 import { useEffect } from "react";
 
 const SetupPage = () => {

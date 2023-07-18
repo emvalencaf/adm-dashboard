@@ -1,10 +1,10 @@
 "use client";
 
 import { useSignIn } from "@clerk/nextjs";
-import { Button } from "../ui/Button";
+import { Button } from "@/components/ui/Button";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { demoAccount } from "../../constants";
+import { demoAccount } from "@/constants";
 import { useState } from "react";
 
 console.log(demoAccount);

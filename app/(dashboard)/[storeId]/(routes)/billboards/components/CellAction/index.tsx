@@ -1,20 +1,20 @@
 "use client";
 
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
-import { Button } from "../../../../../../../components/ui/Button";
+import { Button } from "@/components/ui/Button";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuTrigger,
-} from "../../../../../../../components/ui/DropDownMenu";
+} from "@/components/ui/DropDownMenu";
 import { BillboardColumn } from "../Columns";
 import toast from "react-hot-toast";
 import { useParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { useState } from "react";
-import { AlertModal } from "../../../../../../../components/modals";
+import { AlertModal } from "@/components/modals";
 
 // interfaces
 export interface ICellActionProps {

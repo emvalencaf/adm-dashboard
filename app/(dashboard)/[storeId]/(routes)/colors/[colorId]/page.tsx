@@ -1,4 +1,4 @@
-import prismadb from "../../../../../../lib/prisma";
+import prismadb from "@/lib/prisma";
 import { ColorForm } from "./components";
 
 const ColorPage = async ({

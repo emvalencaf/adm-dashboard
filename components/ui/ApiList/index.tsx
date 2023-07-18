@@ -4,7 +4,7 @@
 import { useParams } from "next/navigation";
 
 // custom hooks
-import { useOrigin } from "../../../hooks";
+import { useOrigin } from "@/hooks";
 import ApiAlert from "../ApiAlert";
 
 // interfaces

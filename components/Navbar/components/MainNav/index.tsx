@@ -2,7 +2,7 @@
 
 import { useParams, usePathname } from "next/navigation";
 // ui
-import { cn } from "../../../../lib/utils";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 // interfaces

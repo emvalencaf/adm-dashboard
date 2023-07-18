@@ -2,7 +2,7 @@
 import { format } from 'date-fns';
 
 // prisma tool
-import prismadb from "../../../../../lib/prisma";
+import prismadb from "@/lib/prisma";
 
 // custom components
 import { CategoryClient } from "./components";

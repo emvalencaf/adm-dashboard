@@ -44,7 +44,7 @@ type CategoryFormValues = z.infer<typeof formSchema>;
 
 // interfaces
 import { Billboard } from "@prisma/client";
-import ImageUpload from "../../../../../../../../components/ui/ImageUpload";
+import ImageUpload from "@/components/ui/ImageUpload";
 
 interface IBillboardFormProps {
     initialData: Billboard | null;
