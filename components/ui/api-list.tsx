@@ -1,7 +1,7 @@
 "use client";
 
 import { ApiAlert } from "@/components/ui/api-alert";
-import { useOrigin } from "@/hooks/use-origin";
+import { useOrigin } from "@/hooks";
 import { useParams } from "next/navigation";
 
 interface ApiListProps {
