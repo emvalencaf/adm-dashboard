@@ -1,5 +1,3 @@
-//  whsec_10a115c8b97c0a9dfc65e4941787d919a0cac24ea86bad0b5187501513ef87b3
-
 import Stripe from "stripe";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
