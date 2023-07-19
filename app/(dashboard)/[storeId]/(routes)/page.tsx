@@ -11,6 +11,7 @@ import { CreditCard, DollarSign, Package } from "lucide-react";
 
 // utils
 import { formatter } from "@/lib/utils";
+import Overview from "@/components/ui/Overview";
 // import Overview from "@/components/ui/Overview";
 
 interface IDashboardPageProps {
@@ -28,7 +29,7 @@ const DashboardPage: React.FC<IDashboardPageProps> = async ({
     const stockCount = await getStockCount(params.storeId);
   
     return (
-      <div className="flex-col">
+        <div className="flex-col">
         <div className="flex-1 space-y-4 p-8 pt-6">
           <Heading title="Dashboard" description="Overview of your store" />
           <Separator />
@@ -68,6 +69,7 @@ const DashboardPage: React.FC<IDashboardPageProps> = async ({
               <CardTitle>Overview</CardTitle>
             </CardHeader>
             <CardContent className="pl-2">
+              <Overview data={graphRevenue} />
             </CardContent>
           </Card>
         </div>
