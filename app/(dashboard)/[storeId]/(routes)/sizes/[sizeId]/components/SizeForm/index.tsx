@@ -12,8 +12,8 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 
 // ui components
-import { Button } from "@/components/ui/Button";
-import { Separator } from "@/components/ui/Separator";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import {
     Form,
     FormControl,
@@ -21,11 +21,11 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/Form";
-import { Input } from "@/components/ui/Input";
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 // custom components
-import Heading from "@/components/ui/Heading";
+import { Heading } from "@/components/ui/heading";
 import { AlertModal } from "@/components/modals";
 
 // icons
@@ -59,12 +59,8 @@ const SizeForm: React.FC<ISizeFormProps> = ({ initialData }) => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     const title = initialData ? "Edit size" : "Create size";
-    const description = initialData
-        ? "Edit a size"
-        : "Add a new size";
-    const toastMessage = initialData
-        ? "Size updated"
-        : "Size created.";
+    const description = initialData ? "Edit a size" : "Add a new size";
+    const toastMessage = initialData ? "Size updated" : "Size created.";
     const action = initialData ? "Save change" : "Create";
 
     // form
@@ -81,9 +77,12 @@ const SizeForm: React.FC<ISizeFormProps> = ({ initialData }) => {
 
         try {
             console.log("[SIZEFORM]:", data); // DEV LOG
-            
-            initialData ?    
-                await axios.patch(`/api/${params.storeId}/sizes/${params.sizeId}`, data)
+
+            initialData
+                ? await axios.patch(
+                      `/api/${params.storeId}/sizes/${params.sizeId}`,
+                      data
+                  )
                 : await axios.post(`/api/${params.storeId}/sizes`, data);
 
             router.refresh();
@@ -164,7 +163,7 @@ const SizeForm: React.FC<ISizeFormProps> = ({ initialData }) => {
                                 </FormItem>
                             )}
                         />
-                                                <FormField
+                        <FormField
                             control={form.control}
                             name="value"
                             render={({ field }) => (

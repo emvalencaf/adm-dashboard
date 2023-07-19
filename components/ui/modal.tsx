@@ -4,11 +4,13 @@ import {
     Dialog,
     DialogContent,
     DialogDescription,
+    DialogFooter,
     DialogHeader,
     DialogTitle,
-} from "@/components/ui/Dialog";
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
-interface IModalProps {
+interface ModalProps {
     title: string;
     description: string;
     isOpen: boolean;
@@ -16,7 +18,7 @@ interface IModalProps {
     children?: React.ReactNode;
 }
 
-export const Modal: React.FC<IModalProps> = ({
+export const Modal: React.FC<ModalProps> = ({
     title,
     description,
     isOpen,
@@ -24,7 +26,9 @@ export const Modal: React.FC<IModalProps> = ({
     children,
 }) => {
     const onChange = (open: boolean) => {
-        if (!open) onClose();
+        if (!open) {
+            onClose();
+        }
     };
 
     return (
@@ -39,5 +43,3 @@ export const Modal: React.FC<IModalProps> = ({
         </Dialog>
     );
 };
-
-export default Modal;

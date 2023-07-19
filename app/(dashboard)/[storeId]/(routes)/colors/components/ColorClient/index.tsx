@@ -4,13 +4,13 @@
 import { useParams, useRouter } from "next/navigation";
 
 // ui components
-import { Button } from "@/components/ui/Button";
-import { DataTable } from "@/components/ui/DataTable";
-import { Separator } from "@/components/ui/Separator";
+import { Button } from "@/components/ui/button";
+import { DataTable } from "@/components/ui/data-table";
+import { Separator } from "@/components/ui/separator";
 
 // custom components
-import Heading from "@/components/ui/Heading";
-import ApiList from "@/components/ui/ApiList";
+import {Heading} from "@/components/ui/heading";
+import {ApiList} from "@/components/ui/api-list";
 
 // icons
 import { Plus } from "lucide-react";

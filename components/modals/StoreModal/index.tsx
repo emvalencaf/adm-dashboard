@@ -12,7 +12,7 @@ import { useState } from "react";
 import { useStoreModal } from "@/hooks";
 
 // custom modal
-import Modal from "@/components/ui/Modal";
+import { Modal } from "@/components/ui/modal";
 
 // axios
 import axios from "axios";
@@ -25,9 +25,9 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/Form";
-import { Input } from "../../ui/Input";
-import { Button } from "../../ui/Button";
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 // toast
 import { toast } from "react-hot-toast";
@@ -52,23 +52,19 @@ const StoreModal: React.FC = () => {
     });
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        
         setIsLoading(true);
 
         try {
-        
-            const response = await axios.post('/api/stores', values);
+            const response = await axios.post("/api/stores", values);
             console.log("[STORE MODAL] :", response.data); // DEV CONSOLE
 
             window.location.assign(`/${response.data.id}`);
-
         } catch (error: any) {
             console.log("[STORE MODAL] :", error); // DEV CONSOLE
             toast.error("Somethingg went wrong.");
         } finally {
             setIsLoading(false);
         }
-
     };
 
     return (
@@ -107,7 +103,9 @@ const StoreModal: React.FC = () => {
                                 >
                                     Cancel
                                 </Button>
-                                <Button type="submit" disabled={isLoading}>Continue</Button>
+                                <Button type="submit" disabled={isLoading}>
+                                    Continue
+                                </Button>
                             </div>
                         </form>
                     </Form>

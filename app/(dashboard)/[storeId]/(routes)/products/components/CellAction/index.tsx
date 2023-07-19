@@ -1,14 +1,14 @@
 "use client";
 
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuTrigger,
-} from "@/components/ui/DropDownMenu";
+} from "@/components/ui/dropdown-menu";
 import { ProductColumn } from "../Columns";
 import toast from "react-hot-toast";
 import { useParams, useRouter } from "next/navigation";

@@ -1,11 +1,11 @@
 "use client";
 
 // ui components
-import { DataTable } from "@/components/ui/DataTable";
-import { Separator } from "@/components/ui/Separator";
+import { DataTable } from "@/components/ui/data-table";
+import { Separator } from "@/components/ui/separator";
 
 // custom components
-import Heading from "@/components/ui/Heading";
+import {Heading} from "@/components/ui/heading";
 
 // interfaces
 import { OrderColumn, columns } from "../Columns";

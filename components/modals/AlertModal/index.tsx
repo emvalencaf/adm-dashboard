@@ -1,14 +1,11 @@
 "use client";
 
-// hooks
-import { useEffect, useState } from "react";
-
 // ui components
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 
 // custom components
-import Modal from "@/components/ui/Modal";
 import ClientComponent from "@/components/ClientComponent";
+import { Modal } from "@/components/ui/modal";
 
 // interfaces
 interface IAlertModalProps {

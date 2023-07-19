@@ -1,10 +1,16 @@
 import { UserButton, auth } from "@clerk/nextjs";
 
+// nextjs tools
+import { redirect } from "next/navigation";
+
 // internal custom components
 import { MainNav, StoreSwitcher } from "@/components/Navbar/components";
-import { redirect } from "next/navigation";
+
+// prisma
 import prismadb from "@/lib/prisma";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
+
+// components
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 
 const Navbar: React.FC = async () => {

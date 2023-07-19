@@ -5,14 +5,14 @@ import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 
 // ui components
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuTrigger,
-} from "@/components/ui/DropDownMenu";
+} from "@/components/ui/dropdown-menu";
 
 // custom components
 import { AlertModal } from "@/components/modals";

@@ -1,9 +1,13 @@
 "use client";
 
+// hooks
 import { useParams, usePathname } from "next/navigation";
+
+// next components
+import Link from "next/link";
+
 // ui
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 // interfaces
 interface IMainNavProps extends React.HTMLAttributes<HTMLElement> {
