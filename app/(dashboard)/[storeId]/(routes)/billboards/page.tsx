@@ -36,6 +36,7 @@ const BillboadsPage: React.FC<IBillboardsPageProps> = async ({
     const formattedBillboards: BillboardColumn[] = billboards.map((item) => ({
         id: item.id,
         label: item.label,
+        labelColor: item.labelColor,
         createdAt: format(item.createdAt, "MMMM do, yyyy"),
     }));
 

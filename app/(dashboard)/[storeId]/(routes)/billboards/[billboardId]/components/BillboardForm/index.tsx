@@ -37,6 +37,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 const formSchema = z.object({
     label: z.string().min(1),
+    labelColor: z.string().min(1),
     imageUrl: z.string().min(1),
 });
 
@@ -73,6 +74,7 @@ const BillboardForm: React.FC<IBillboardFormProps> = ({ initialData }) => {
         resolver: zodResolver(formSchema),
         defaultValues: initialData || {
             label: "",
+            labelColor: "",
             imageUrl: "",
         },
     });
@@ -178,6 +180,32 @@ const BillboardForm: React.FC<IBillboardFormProps> = ({ initialData }) => {
                                             placeholder="Billboard label"
                                             {...field}
                                         />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                                                <FormField
+                            control={form.control}
+                            name="labelColor"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel>Label Color</FormLabel>
+                                    <FormControl>
+                                        <div className="flex items-center gap-x-4">
+                                            <Input
+                                                disabled={isLoading}
+                                                placeholder="label color"
+                                                {...field}
+                                            />
+                                            <div
+                                                className="border p-4 rounded-full"
+                                                style={{
+                                                    backgroundColor:
+                                                        field.value,
+                                                }}
+                                            />
+                                        </div>
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
